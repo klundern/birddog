@@ -14,6 +14,7 @@ If you have any suggestions or comments, feel free to reach out! This project is
 <img width="1392" alt="image" src="https://user-images.githubusercontent.com/66793403/191651425-e69a7752-5818-4fcb-a87d-92c60ea7610a.png">
 <figcaption align="center"><b>Screenshot from current implementation of BirdDog</b></figcaption>
 </figure>
+
 * Game launches to Title screen; options are selectable, only PlayState goes anywhere currently
 * Music and selection sounds implemented
 * BirdDog that represents player is drawn on screen; can be controled (up and down) and includes running animation
