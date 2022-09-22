@@ -10,9 +10,13 @@ As I am also a full time student, I have no timeframe for when this project will
 If you have any suggestions or comments, feel free to reach out! This project is purely for fun, and I hope you enjoy playing it as much as I enjoy designing it.
 
 ### Current Version: 0.2.0
+<figure>
+<img width="1392" alt="image" src="https://user-images.githubusercontent.com/66793403/191651425-e69a7752-5818-4fcb-a87d-92c60ea7610a.png">
+<figcaption align="center"><b>Screenshot from current implementation of BirdDog</b></figcaption>
+</figure>
 * Game launches to Title screen; options are selectable, only PlayState goes anywhere currently
 * Music and selection sounds implemented
-* BirdDog that represents player is drawn on screen, including controls (up and down) and animations
+* BirdDog that represents player is drawn on screen; can be controled (up and down) and includes running animation
 
 ## Future Milestones
 
@@ -20,7 +24,7 @@ If you have any suggestions or comments, feel free to reach out! This project is
 * RulesState exists and outlines basic gameplay
 
 ### 0.4.0 - Creatures
-* Procedurally generation of Animals that scroll across screen
+* Procedural generation of Animals that scroll across screen
 
 ### 0.5.0 - Scoring
 * GameOver State
