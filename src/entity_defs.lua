@@ -6,6 +6,7 @@
 ]]
 
 ENTITY_DEFS = {
+    -- birddog (player) defs
     ['birddog'] = {
         speed = BIRDDOG_RUN_SPEED,
         animations = {
@@ -16,13 +17,49 @@ ENTITY_DEFS = {
             }
         }
     },
-    ['bird'] = {
+
+    -- bird defs
+    ['robin'] = {
         speed = 60,
+        points = 500,
         animations = {
-            ['sitting'] = {
-                frames = {},
+            ['idle'] = {
+                frames = {22},
                 interval = 0,
-                texture = ''
+                texture = 'robin'
+            }
+        }
+    },
+    ['sparrow'] = {
+        speed = 60,
+        points = 500,
+        animations = {
+            ['idle'] = {
+                frames = {22},
+                interval = 0,
+                texture = 'sparrow'
+            }
+        }
+    },
+    ['cardinal'] = {
+        speed = 80,
+        points = 1000,
+        animations = {
+            ['idle'] = {
+                frames = {22},
+                interval = 0,
+                texture = 'cardinal'
+            }
+        }
+    },
+    ['bluejay'] = {
+        speed = 100,
+        points = 1500,
+        animations = {
+            ['idle'] = {
+                frames = {22},
+                interval = 0,
+                texture = 'bluejay'
             }
         }
     }

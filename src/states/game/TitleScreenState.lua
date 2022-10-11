@@ -64,7 +64,7 @@ function TitleScreenState:update(dt)
         end
 
         if self.currentMenuItem == 2 then
-            --gStateMachine:change('rules')
+            gStateMachine:change('rules')
         end
 
         if self.currentMenuItem == 3 then

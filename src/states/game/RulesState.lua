@@ -1,93 +1,68 @@
 --[[
-    TitleScreenState Class
+    RulesState Class
     Author: Nolan Klunder
     klundern@gmail.com
 
-    The TitleScreenState is the starting screen of the game, shown on startup. It should
-    menu options including 1) Playing the game, 2) Viewing the rules/how to play, and 
-    3) the highest scores achieved and the names of that player.
+
 ]]
 
-TitleScreenState = Class{__includes = BaseState}
+RulesState = Class{__includes = BaseState}
 
-function TitleScreenState:init()
-    -- currently selected menu item
-    self.currentMenuItem = 1
+function RulesState:init()
+    self.menu = {}
 
-    -- selected and non-slected menu item colors
-    self.colors = {
-        ['selected'] = {92/255, 204/255, 220/255, 1},
-        ['non-selected'] = {1, 1, 1, 1}
-    }
+    self.rows = 10
+    self.columns = 21
 
+    local tileID = 0
+
+    -- each row
+    for y = 0, self.rows do
+        for x = 0, self.columns do
+            -- set ID for 4 'sides' of menu, then everything else in-between
+            if y == 0 then
+                tileID = 2
+            elseif y == self.rows then
+                tileID = 8
+            elseif x == 0 then
+                tileID = 4
+            elseif x == self.columns then
+                tileID = 6
+            else
+                tileID = 5
+            end
+
+            -- set tileID's for corners
+            if y == 0 and x == 0 then
+                tileID = 1
+            elseif y == self.rows and x == 0 then
+                tileID = 7
+            elseif y == 0 and x == self.columns then
+                tileID = 3
+            elseif y == self.rows and x == self.columns then
+                tileID = 9
+            end
+
+            -- add each tile to the menu table
+            local tile = Tile(tileID, (x * 16) + 16, (y * 16) + 16)
+            table.insert(self.menu, tile)
+        end
+    end
 end
 
-function TitleScreenState:update(dt)
+function RulesState:update(dt)
     if love.keyboard.wasPressed('escape') then
         love.event.quit()
     end
 
-    if love.keyboard.wasPressed('up') then
-        if self.currentMenuItem == 1 then
-            self.currentMenuItem = 3
-        else
-            self.currentMenuItem = self.currentMenuItem - 1
-        end
-
-        gSounds['blip']:play()
-    end
-
-    if love.keyboard.wasPressed('down') then
-        if self.currentMenuItem == 3 then
-            self.currentMenuItem = 1
-        else
-            self.currentMenuItem = self.currentMenuItem + 1
-        end
-
-        gSounds['blip']:play()
-    end
-
     if love.keyboard.wasPressed('return' or 'enter') then
-        if self.currentMenuItem == 1 then
-            gStateMachine:change('play')
-        end
-
-        if self.currentMenuItem == 2 then
-            gStateMachine:change('rules')
-        end
-
-        if self.currentMenuItem == 3 then
-            gStateMachine:change('highscore')
-        end
+        gStateMachine:change('title')
+        gSounds['blip']:play()
     end
 end
 
-function TitleScreenState:render()
-    -- simple UI code
-    love.graphics.setFont(gFonts['xlarge'])
-    love.graphics.printf('BirdDog', 0, 56, VIRTUAL_WIDTH, 'center')
-
-    love.graphics.setFont(gFonts['medium'])
-
-    -- logic for rendering currently selected menu item
-    if self.currentMenuItem == 1 then
-        love.graphics.setColor(self.colors['selected'])
-    else
-        love.graphics.setColor(self.colors['non-selected'])
+function RulesState:render()
+    for k, tile in pairs(self.menu) do
+        tile:render()
     end
-    love.graphics.printf('Play', 0, 128, VIRTUAL_WIDTH, 'center')
-
-    if self.currentMenuItem == 2 then
-        love.graphics.setColor(self.colors['selected'])
-    else
-        love.graphics.setColor(self.colors['non-selected'])
-    end
-    love.graphics.printf('Rules', 0, 152, VIRTUAL_WIDTH, 'center')
-
-    if self.currentMenuItem == 3 then
-        love.graphics.setColor(self.colors['selected'])
-    else
-        love.graphics.setColor(self.colors['non-selected'])
-    end
-    love.graphics.printf('High Scores', 0, 174, VIRTUAL_WIDTH, 'center')
 end

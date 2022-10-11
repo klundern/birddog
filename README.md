@@ -28,3 +28,9 @@ If you have any suggestions or comments, feel free to reach out! This project is
 * GameOver State
 * HighScore State
 * Scoring system implemented; when dog collides with 'good' animals, points are added; go to GameOver state if colliding with a 'bad' animal
+
+---
+### Attributions
+* **CS50: Introduction to Game Development:** Inspiration for game, as well as blueprint for many of the game's mechanics.
+* **Graphics**: to be listed here
+
