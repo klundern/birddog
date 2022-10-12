@@ -11,43 +11,10 @@ RulesState = Class{__includes = BaseState}
 function RulesState:init()
     self.menu = {}
 
-    self.rows = 10
+    self.rows = 8
     self.columns = 21
 
-    local tileID = 0
-
-    -- each row
-    for y = 0, self.rows do
-        for x = 0, self.columns do
-            -- set ID for 4 'sides' of menu, then everything else in-between
-            if y == 0 then
-                tileID = 2
-            elseif y == self.rows then
-                tileID = 8
-            elseif x == 0 then
-                tileID = 4
-            elseif x == self.columns then
-                tileID = 6
-            else
-                tileID = 5
-            end
-
-            -- set tileID's for corners
-            if y == 0 and x == 0 then
-                tileID = 1
-            elseif y == self.rows and x == 0 then
-                tileID = 7
-            elseif y == 0 and x == self.columns then
-                tileID = 3
-            elseif y == self.rows and x == self.columns then
-                tileID = 9
-            end
-
-            -- add each tile to the menu table
-            local tile = Tile(tileID, (x * 16) + 16, (y * 16) + 16)
-            table.insert(self.menu, tile)
-        end
-    end
+    self.menu = Tile:createMenu(self.rows, self.columns)
 end
 
 function RulesState:update(dt)
@@ -62,7 +29,31 @@ function RulesState:update(dt)
 end
 
 function RulesState:render()
+    -- build menu, tile by tile
     for k, tile in pairs(self.menu) do
         tile:render()
     end
+
+    -- UI Code
+    love.graphics.setFont(gFonts['large'])
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.printf('Rules:', 0, 20, VIRTUAL_WIDTH, 'center')
+
+    love.graphics.rectangle('fill', 92, 50, 200, 2)
+
+    love.graphics.setFont(gFonts['medium'])
+    love.graphics.printf('1. Catch birds (             )', 0, 60, VIRTUAL_WIDTH, 'center')
+    love.graphics.draw(gTextures['robin'], gFrames['robin'][22], 200, 50)
+    love.graphics.draw(gTextures['sparrow'], gFrames['sparrow'][22], 225, 50)
+    love.graphics.draw(gTextures['cardinal'], gFrames['cardinal'][22], 250, 50)
+    love.graphics.draw(gTextures['bluejay'], gFrames['bluejay'][22], 275, 50)
+
+    love.graphics.printf('2. Avoid cats (    )', 0, 90, VIRTUAL_WIDTH, 'center')
+    love.graphics.draw(gTextures['cat'], gFrames['cat'][1], 234, 76)
+
+    love.graphics.printf('3. Have fun!', 0, 120, VIRTUAL_WIDTH, 'center')
+
+    love.graphics.setColor(92/255, 204/255, 220/255, 1)
+    love.graphics.printf('Return to Main Menu', 0, 180, VIRTUAL_WIDTH, 'center')
+
 end

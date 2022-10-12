@@ -32,7 +32,8 @@ gTextures = {
 	['robin'] = love.graphics.newImage('graphics/birds/robin.png'),
 	['sparrow'] = love.graphics.newImage('graphics/birds/sparrow.png'),
 	['cardinal'] = love.graphics.newImage('graphics/birds/cardinal.png'),
-	['bluejay'] = love.graphics.newImage('graphics/birds/bluejay.png')
+	['bluejay'] = love.graphics.newImage('graphics/birds/bluejay.png'),
+	['cat'] = love.graphics.newImage('graphics/cat.png')
 }
 
 gFrames = {
@@ -41,7 +42,8 @@ gFrames = {
 	['robin'] = GenerateQuads(gTextures['robin'], 32, 32),
 	['sparrow'] = GenerateQuads(gTextures['sparrow'], 32, 32),
 	['cardinal'] = GenerateQuads(gTextures['cardinal'], 32, 32),
-	['bluejay'] = GenerateQuads(gTextures['bluejay'], 32, 32)
+	['bluejay'] = GenerateQuads(gTextures['bluejay'], 32, 32),
+	['cat'] = GenerateQuads(gTextures['cat'], 32, 32)
 }
 
 gFonts = {

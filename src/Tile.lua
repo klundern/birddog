@@ -1,25 +1,16 @@
 --[[
-    GD50
-    Match-3 Remake
-
-    -- Tile Class --
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-
-    The individual tiles that make up our game board. Each Tile can have a
-    color and a variety, with the varietes adding extra points to the matches.
+    For the purposes of this game, a "Tile" is a 16x16 image that can be used to draw
+    Menus or game boards.
 ]]
 
 Tile = Class{}
 
 function Tile:init(tileID, x, y)
-    
-    -- board positions
+    -- Positions of tiles
     self.x = x
     self.y = y
 
-    -- tile appearance/points
+    -- reference for frame
     self.tileID = tileID
 end
 
@@ -28,4 +19,48 @@ end
 
 function Tile:render(x, y)
     love.graphics.draw(gTextures['menuUI'], gFrames['menuUI'][self.tileID], self.x, self.y)
+end
+
+--[[
+    A function that returns a table of tiles that represent a Menu; takes the
+    desired Menu texture, number or rows, and number of clumns as arguments.
+]]
+function Tile:createMenu(rows, columns)
+    self.menu = {}
+    local tileID = 0
+
+    -- each row
+    for y = 0, rows do
+        for x = 0, columns do
+            -- set ID for 4 'sides' of menu, then everything else in-between
+            if y == 0 then
+                tileID = 2
+            elseif y == rows then
+                tileID = 8
+            elseif x == 0 then
+                tileID = 4
+            elseif x == columns then
+                tileID = 6
+            else
+                tileID = 5
+            end
+
+            -- set tileID's for corners
+            if y == 0 and x == 0 then
+                tileID = 1
+            elseif y == rows and x == 0 then
+                tileID = 7
+            elseif y == 0 and x == columns then
+                tileID = 3
+            elseif y == rows and x == columns then
+                tileID = 9
+            end
+
+            -- add each tile to the menu table
+            local tile = Tile(tileID, (x * 16) + 16, (y * 16) + 16)
+            table.insert(self.menu, tile)
+        end
+    end
+
+    return self.menu
 end
