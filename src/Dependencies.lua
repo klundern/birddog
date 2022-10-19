@@ -23,6 +23,9 @@ require 'src/states/game/RulesState'
 
 -- entity states
 require 'src/states/entity/PlayerRunState'
+require 'src/states/entity/Entity/EntityIdleState'
+require 'src/states/entity/Entity/BirdFlyState'
+require 'src/states/entity/Entity/CatChaseState'
 
 gTextures = {
 	['background'] = love.graphics.newImage('graphics/background.png'),
@@ -55,5 +58,12 @@ gFonts = {
 
 gSounds = {
 	['music'] = love.audio.newSource('sounds/music.mp3', 'static'),
-	['blip'] = love.audio.newSource('sounds/blip.wav', 'static')
+	['blip'] = love.audio.newSource('sounds/blip.wav', 'static'),
+	['crunch-1'] = love.audio.newSource('sounds/crunch-1.mp3', 'static'),
+	['crunch-2'] = love.audio.newSource('sounds/crunch-2.mp3', 'static'),
+	['crunch-3'] = love.audio.newSource('sounds/crunch-3.mp3', 'static'),
+	['crunch-4'] = love.audio.newSource('sounds/crunch-4.mp3', 'static'),
+	['crunch-5'] = love.audio.newSource('sounds/crunch-5.mp3', 'static'),
+	['crunch-6'] = love.audio.newSource('sounds/crunch-6.mp3', 'static'),
+	['crunch-7'] = love.audio.newSource('sounds/crunch-7.mp3', 'static')
 }

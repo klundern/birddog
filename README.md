@@ -9,23 +9,31 @@ As I am also a full time student, I have no timeframe for when this project will
 
 If you have any suggestions or comments, feel free to reach out! This project is purely for fun, and I hope you enjoy playing it as much as I enjoy designing it.
 
-### Current Version: 0.3.0
-<img width="1392" alt="image" src="https://user-images.githubusercontent.com/66793403/191651425-e69a7752-5818-4fcb-a87d-92c60ea7610a.png">
+### Current Version: 0.4.0
+<img width="1392" alt="Screenshot 2022-10-19 at 10 20 16 AM" src="https://user-images.githubusercontent.com/66793403/196718027-7021e84c-a8e3-4c51-b669-ac30498f748d.png">
 
-* Game launches to Title screen; options are selectable, only PlayState goes anywhere currently
-* Music and selection sounds implemented
-* BirdDog that represents player is drawn on screen; can be controled (up and down) and includes running animation
-* RulesState that explains basic gameplay, complete with bird and cat images
+* TitleScreenState, PlayState, RulesState exist and can be transitioned into
+* Random procedural generation of animals that scroll across screen; may tweak in the future
+* Scoring implemented for birds but no GameOver state when colliding with cats (game continues endlessly)
 
 ## Future Milestones
 
-### 0.4.0 - Creatures
-* Procedural generation of Animals that scroll across screen
+### 0.5.0 - GameOverState, HighScoreState
+* Go to GameOver state if collided with a cat
+* GameOverState exists and can be transitioned into
+* HighScoreState exists and can be transitioned into; can input score if it is in the top 5 high scores
+* **Bonus**: Gameplay can be paused
 
-### 0.5.0 - Scoring
-* GameOver State
-* HighScore State
-* Scoring system implemented; when dog collides with 'good' animals, points are added; go to GameOver state if colliding with a 'bad' animal
+### 0.6.0 - EntityStates
+* Animals (birds, cat) have various states that they transition between: idle, flying/chasing
+* States are automatically triggered when player BirdDog gets close enough (birds fly, cats chase)
+
+
+### Future Ideas:
+* Procedural generation of 'field' upon which BirdDog and other animals appear
+* Animals are hidden in bushes and will 'flee' the bush when the BirdDog gets close enough
+* Puddles and other obstacles that Player must dodge; BirdDog can 'run ahead' on-screen up to a point
+* Powerups and other bonuses that may be collected
 
 ---
 ### Attributions

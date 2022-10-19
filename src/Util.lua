@@ -1,7 +1,4 @@
 --[[
-    GD50
-    Legend of Zelda
-
     Util Class
 
     Author: Colton Ogden

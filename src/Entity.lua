@@ -1,7 +1,5 @@
 --[[
     Entity class
-
-
 ]]
 
 Entity = Class{}
@@ -18,13 +16,10 @@ function Entity:init(def)
     self.width = def.width
     self.height = def.height
 
-    -- drawing offsets for padded sprites
-    self.offsetX = def.offsetX or 0
-    self.offsetY = def.offsetY or 0
-
     self.speed = def.speed
+    self.points = def.points
 
-    self.dead = false
+    self.type = def.type
 end
 
 function Entity:createAnimations(animations)

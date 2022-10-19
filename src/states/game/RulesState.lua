@@ -3,7 +3,7 @@
     Author: Nolan Klunder
     klundern@gmail.com
 
-
+    Basic menu that explains the rules of the game.
 ]]
 
 RulesState = Class{__includes = BaseState}

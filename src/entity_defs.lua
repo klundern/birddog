@@ -21,9 +21,9 @@ ENTITY_DEFS = {
     -- bird defs
     ['robin'] = {
         speed = 60,
-        points = 500,
+        points = 5,
         animations = {
-            ['idle'] = {
+            ['idle-right'] = {
                 frames = {22},
                 interval = 0,
                 texture = 'robin'
@@ -32,9 +32,9 @@ ENTITY_DEFS = {
     },
     ['sparrow'] = {
         speed = 60,
-        points = 500,
+        points = 5,
         animations = {
-            ['idle'] = {
+            ['idle-right'] = {
                 frames = {22},
                 interval = 0,
                 texture = 'sparrow'
@@ -43,9 +43,9 @@ ENTITY_DEFS = {
     },
     ['cardinal'] = {
         speed = 80,
-        points = 1000,
+        points = 10,
         animations = {
-            ['idle'] = {
+            ['idle-right'] = {
                 frames = {22},
                 interval = 0,
                 texture = 'cardinal'
@@ -54,12 +54,58 @@ ENTITY_DEFS = {
     },
     ['bluejay'] = {
         speed = 100,
-        points = 1500,
+        points = 15,
         animations = {
-            ['idle'] = {
+            ['idle-right'] = {
                 frames = {22},
                 interval = 0,
                 texture = 'bluejay'
+            }
+        }
+    },
+
+    -- cat definition; each cat has the same point values, just different skins
+
+    -- general cat point and speed defs
+    ['cat'] = {
+        speed = 90,
+        points = 0,
+    },
+
+    -- texture and animation defintions
+    ['white-cat'] = {
+        animations = {
+            ['idle-right'] = {
+                frames = {4},
+                interval = 0,
+                texture = 'cat'
+            }
+        }
+    },
+    ['tan-cat'] = {
+        animations = {
+            ['idle-right'] = {
+                frames = {8},
+                interval = 0,
+                texture = 'cat'
+            }
+        }
+    },
+    ['brown-cat'] = {
+        animations = {
+            ['idle-right'] = {
+                frames = {12},
+                interval = 0,
+                texture = 'cat'
+            }
+        }
+    },
+    ['black-cat'] = {
+        animations = {
+            ['idle-right'] = {
+                frames = {16},
+                interval = 0,
+                texture = 'cat'
             }
         }
     }
