@@ -11,8 +11,9 @@ RulesState = Class{__includes = BaseState}
 function RulesState:init()
     self.menu = {}
 
-    self.rows = 8
+    self.rows = 11
     self.columns = 21
+    self.texture = 1
 
     self.menu = Tile:createMenu(self.rows, self.columns)
 end
@@ -26,12 +27,23 @@ function RulesState:update(dt)
         gStateMachine:change('title')
         gSounds['blip']:play()
     end
+
+    -- allows us to swap MenuUI skins (so we can compare them in-game)
+    if love.keyboard.wasPressed('1') then
+        self.texture = 1
+    elseif love.keyboard.wasPressed('2') then
+        self.texture = 2
+    elseif love.keyboard.wasPressed('3') then
+        self.texture = 3
+    elseif love.keyboard.wasPressed('4') then
+        self.texture = 4
+    end
 end
 
 function RulesState:render()
     -- build menu, tile by tile
     for k, tile in pairs(self.menu) do
-        tile:render()
+        tile:render(self.texture)
     end
 
     -- UI Code
@@ -53,7 +65,7 @@ function RulesState:render()
 
     love.graphics.printf('3. Have fun!', 0, 120, VIRTUAL_WIDTH, 'center')
 
-    love.graphics.setColor(92/255, 204/255, 220/255, 1)
-    love.graphics.printf('Return to Main Menu', 0, 180, VIRTUAL_WIDTH, 'center')
+    --love.graphics.setColor(92/255, 204/255, 220/255, 1)
+    love.graphics.printf("Press 'Enter' for Main Menu", 0, 180, VIRTUAL_WIDTH, 'center')
 
 end

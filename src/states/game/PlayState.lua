@@ -48,6 +48,11 @@ function PlayState:update(dt)
     if love.keyboard.wasPressed('escape') then
         love.event.quit()
     end
+
+    -- DEBUG: quick transition to GameOverState
+    if love.keyboard.wasPressed('g') then
+        gStateMachine:change('gameover')
+    end
     
     -- update our table of animals; see function below
     self:updateAnimals(dt)
@@ -245,6 +250,8 @@ function PlayState:updateAnimals(dt)
             if animal.type == 'bird' then
                 -- play a nice crunch sound, chosen at random to add some variety
                 gSounds['crunch-' .. math.random(1, 7)]:play()
+            elseif animal.type == 'cat' then
+                gStateMachine:change('gameover')
             end
 
             table.remove(self.animals, k)

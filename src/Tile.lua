@@ -17,8 +17,10 @@ end
 function Tile:update(dt)
 end
 
-function Tile:render(x, y)
-    love.graphics.draw(gTextures['menuUI'], gFrames['menuUI'][self.tileID], self.x, self.y)
+function Tile:render(texture)
+    love.graphics.draw(gTextures['menuUI-' .. tostring(texture)], 
+        gFrames['menuUI-' .. tostring(texture)][self.tileID], 
+        self.x, self.y)
 end
 
 --[[

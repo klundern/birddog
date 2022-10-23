@@ -68,7 +68,7 @@ function TitleScreenState:update(dt)
         end
 
         if self.currentMenuItem == 3 then
-            --gStateMachine:change('highscore')
+            gStateMachine:change('highscore')
         end
     end
 end

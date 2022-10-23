@@ -9,20 +9,17 @@ As I am also a full time student, I have no timeframe for when this project will
 
 If you have any suggestions or comments, feel free to reach out! This project is purely for fun, and I hope you enjoy playing it as much as I enjoy designing it.
 
-### Current Version: 0.4.0
+### Current Version: 0.4.1
 <img width="1392" alt="Screenshot 2022-10-19 at 10 20 16 AM" src="https://user-images.githubusercontent.com/66793403/196718027-7021e84c-a8e3-4c51-b669-ac30498f748d.png">
 
-* TitleScreenState, PlayState, RulesState exist and can be transitioned into
-* Random procedural generation of animals that scroll across screen; may tweak in the future
-* Scoring implemented for birds but no GameOver state when colliding with cats (game continues endlessly)
+* GameOverState when cat is collided with; displays top 5 highest scores
+* HighScoreState exists; no way to input high score currently
 
 ## Future Milestones
 
-### 0.5.0 - GameOverState, HighScoreState
-* Go to GameOver state if collided with a cat
-* GameOverState exists and can be transitioned into
-* HighScoreState exists and can be transitioned into; can input score if it is in the top 5 high scores
-* **Bonus**: Gameplay can be paused
+### 0.5.0 - EnterHighScoreState
+* Can input your score if it is in the top 5 High Scores
+* Gameplay can be paused
 
 ### 0.6.0 - EntityStates
 * Animals (birds, cat) have various states that they transition between: idle, flying/chasing
