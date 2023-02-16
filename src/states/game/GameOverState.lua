@@ -10,12 +10,34 @@ function GameOverState:init()
 	self.columns = 21
 
 	self.menu = Tile:createMenu(self.rows, self.columns)
-
-	self.highScores = loadHighScores()
 end
 
-function GameOverState:enter()
-	-- do I need this function? TBD
+function GameOverState:enter(params)
+	self.score = params.score
+	self.highScores = loadHighScores()
+	
+	-- when we enter the GameOverState, check if a high score has been achieved
+	local highScore = false
+
+	-- keep track if which score our high score overwrites, if any
+	local scoreIndex = 6
+
+	for i = 5, 1, -1 do
+		local score = self.highScores[i].score or 0
+		if self.score > score then
+			highScoreIndex = i
+			highScore = true
+		end
+	end
+
+	-- if we did beat a highscore, transition to the 'enter-high-score' state
+	if highScore then
+		gStateMachine:change('enter-high-score', {
+			highScores = self.highScores,
+			score = self.score,
+			scoreIndex = highScoreIndex
+		})
+	end
 end
 
 function GameOverState:update(dt)

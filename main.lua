@@ -29,7 +29,8 @@ function love.load()
 		['play'] = function() return PlayState() end,
 		['rules'] = function() return RulesState() end,
 		['gameover'] = function() return GameOverState() end,
-		['highscore'] = function() return HighScoreState() end
+		['highscore'] = function() return HighScoreState() end,
+		['enter-high-score'] = function() return EnterHighScoreState() end
 	}
 
 	gSounds['music']:setLooping(true)

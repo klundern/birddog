@@ -50,7 +50,7 @@ function PlayState:update(dt)
     end
 
     -- DEBUG: quick transition to GameOverState
-    if love.keyboard.wasPressed('g') then
+    if love.keyboard.wasPressed('g') and DEBUG then
         gStateMachine:change('gameover')
     end
     
@@ -87,7 +87,7 @@ end
 function PlayState:updateAnimals(dt)
     self.timer = self.timer + dt
 
-    if self.timer > 1 then
+    if self.timer > 0.5 then
         -- get a random number
         self.random = love.math.random(1, 20)
 
@@ -251,7 +251,10 @@ function PlayState:updateAnimals(dt)
                 -- play a nice crunch sound, chosen at random to add some variety
                 gSounds['crunch-' .. math.random(1, 7)]:play()
             elseif animal.type == 'cat' then
-                gStateMachine:change('gameover')
+                gSounds['meow']:play()
+                gStateMachine:change('gameover', {
+                    score = self.score
+                })
             end
 
             table.remove(self.animals, k)

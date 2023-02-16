@@ -10,7 +10,7 @@ function EntityIdleState:init(entity)
 end
 
 function EntityIdleState:update(dt)
-    self.entity.x = self.entity.x - (40 * dt)
+    self.entity.x = self.entity.x - (BACKGROUND_SCROLL_SPEED * dt)
 end
 
 function EntityIdleState:render()

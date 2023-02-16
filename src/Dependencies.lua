@@ -22,6 +22,7 @@ require 'src/states/game/TitleScreenState'
 require 'src/states/game/RulesState'
 require 'src/states/game/GameOverState'
 require 'src/states/game/HighScoreState'
+require 'src/states/game/EnterHighScoreState'
 
 -- entity states
 require 'src/states/entity/PlayerRunState'
@@ -73,5 +74,6 @@ gSounds = {
 	['crunch-4'] = love.audio.newSource('sounds/crunch-4.mp3', 'static'),
 	['crunch-5'] = love.audio.newSource('sounds/crunch-5.mp3', 'static'),
 	['crunch-6'] = love.audio.newSource('sounds/crunch-6.mp3', 'static'),
-	['crunch-7'] = love.audio.newSource('sounds/crunch-7.mp3', 'static')
+	['crunch-7'] = love.audio.newSource('sounds/crunch-7.mp3', 'static'),
+	['meow'] = love.audio.newSource('sounds/meow.wav', 'static')
 }
